@@ -2,22 +2,39 @@ from flask import Flask, url_for, render_template
 app = Flask(__name__) # __main__
 
 
+
+def generate_links():
+    with app.test_request_context():
+        danil_is_host_link = url_for('hello_user',username='Danil is host')
+        misha_the_great_link = url_for(
+            'hello_user',
+            username='Danil The Great'
+        )
+        index_link = url_for('index')
+
+        links = (
+            ("Danil's page", danil_is_host_link),
+            ("Misha's page", misha_the_great_link),
+            ('Index', index_link),
+        )
+        return links
+
+
 @app.route('/')
 def index() :
-    with app.test_request_context():
-        link = url_for('hello_user',username='Danil is host')
+    links = generate_links()
+    return render_template('index.html', links=links)
 
-    return render_template('index.html',link=link)
 
 
 @app.route('/user/')
 @app.route('/user/<username>')
 def hello_user(username=None):
-    numbers = [1,2,3,4,5,6,7,8,9,0]
+    links = generate_links()
     return render_template(
             'user.html',
             username=username,
-            numbers=numbers
+            links=links
     )
 
 if __name__ == '__main__':
