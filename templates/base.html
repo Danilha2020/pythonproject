@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Our first page with Python</title>
+    <title>{%  block title %}Default title{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
 </head>
 <body>
-<h1>Hello world</h1>
-{% include 'links.html' %}
+<section>
+    {% include 'links.html' %}
+</section>
+<section id="content">
+    {% block content %}
+    {% endblock %}
+</section>
 </body>
 </html>
