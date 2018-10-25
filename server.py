@@ -11,12 +11,18 @@ def generate_links():
             username='Danil The Great'
         )
         index_link = url_for('index')
-
-        links = (
-            ("Danil's page", danil_is_host_link),
-            ("Misha's page", misha_the_great_link),
-            ('Index', index_link),
+        index_with_params_link = url_for(
+            'index',
+            param1='param1',
+            param2='param2'
         )
+
+        links = {
+            "Danil's page": danil_is_host_link,
+            "Misha's page": misha_the_great_link,
+            'Index': index_link,
+            'Index with params': index_with_params_link,
+        }
         return links
 
 
