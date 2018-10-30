@@ -18,10 +18,10 @@ def generate_links():
         )
 
         links = {
-            "Danil's page": danil_is_host_link,
-            "Misha's page": misha_the_great_link,
-            'Index': index_link,
-            'Index with params': index_with_params_link,
+            "Каталог": danil_is_host_link,
+            "Новости": misha_the_great_link,
+            'Корзина': index_link,
+            'Тех.поддержка': index_with_params_link,
         }
         return links
 
