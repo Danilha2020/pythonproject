@@ -29,7 +29,17 @@ def generate_links():
 @app.route('/')
 def index() :
     links = generate_links()
-    return render_template('index.html', links=links)
+    images = [
+        {
+          'src':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ9i5kuWxXdGj8S_m20XJBE2XUmvimA5p5D_h7kUSdHCLnkHMb',
+          'title': 'Image title',
+        },
+        {
+            'src':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgU5Ju-EZmafjv1Nl49vWechzURNhto5Zq_8t04eD14GkOgLoV',
+            'title': 'Image 2 title',
+        }
+    ]
+    return render_template('index.html', links=links, images=images)
 
 
 
