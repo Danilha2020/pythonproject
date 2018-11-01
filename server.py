@@ -5,10 +5,10 @@ app = Flask(__name__) # __main__
 
 def generate_links():
     with app.test_request_context():
-        danil_is_host_link = url_for('hello_user',username='Danil is host')
+        danil_is_host_link = url_for('hello_user',username='В ближайшем обновлении')
         misha_the_great_link = url_for(
             'hello_user',
-            username='Danil The Great'
+            username='Скоро добавим'
         )
         index_link = url_for('index')
         index_with_params_link = url_for(
