@@ -40,19 +40,21 @@
         </a>
     </div>
 
-    <div class="card-deck">
-    {% for product in slides %}
-        <div class="card">
+    <div class="card-group">
+        {% for product in slides %}
+            <div class="card">
 
-            <img class="card-img-top" src="{{ product.image_src }}" alt="{{ product.image_title }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ product.heading }}</h5>
-                <p class="card-text">{{ product.subheading }}</p>
+                <img class="card-img-top" src="{{ product.image_src }}" alt="{{ product.image_title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.heading }}</h5>
+                    <p class="card-text">{{ product.subheading }}</p>
+                </div>
+                <p>
+                    <small class="text-muted">Забронировать</small>
+                </p>
+
             </div>
-                <small class="text-muted">Забронировать</small>
-            </p>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
 
 {% endblock %}
