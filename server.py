@@ -29,17 +29,33 @@ def generate_links():
 @app.route('/')
 def index() :
     links = generate_links()
-    images = [
+    slides = [
         {
-          'src':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ9i5kuWxXdGj8S_m20XJBE2XUmvimA5p5D_h7kUSdHCLnkHMb',
-          'title': 'Image title',
+          'image_src':'http://www.vokrugsveta.ru/img/cmn/2013/05/06/005.jpg',
+          'image_title': 'Image title',
+          'heading':'Посмотрите природу Турции',
+          'subheading': 'Тайланд',
         },
         {
-            'src':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgU5Ju-EZmafjv1Nl49vWechzURNhto5Zq_8t04eD14GkOgLoV',
-            'title': 'Image 2 title',
+            'image_src':'https://ejourney.ru/files/img/2013/01/kogda_luchshe_ehat_v_egipet_0.jpg',
+            'image_title': 'Image 2 title',
+            'heading': 'Посмотрите природу Египта',
+            'subheading': 'Заказ билетов у нас!',
+        },
+        {
+            'image_src': 'https://well.ru/upload/uf/ba4/15.jpg',
+            'image_title': 'Image 3 title',
+            'heading': 'Посмотрите природу Тайланда',
+            'subheading': 'заказ билетов у нас!',
+        },
+        {
+            'image_src': 'https://wallpaperstudio10.com/static/wpdb/wallpapers/3840x2160/171847.jpg',
+            'image_title': 'Image 4 title',
+            'heading': 'Посмотрите природу Мальдив',
+            'subheading': 'заказ билетов у нас!',
         }
     ]
-    return render_template('index.html', links=links, images=images)
+    return render_template('index.html', links=links, slides=slides)
 
 
 

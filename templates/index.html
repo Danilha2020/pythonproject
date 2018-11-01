@@ -1,34 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}5x5-shop{% endblock %}
+{% block title %}Australia-market{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/carousel/carousel.css">
 {% endblock %}
 {% block content %}
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-    </ol>
-    <div class="carousel-inner">
-        {% set class = '' %}
-        {% for image in images %}
-            {% if loop.first %}
-                {% set class = 'active' %}
-            {% endif %}
-            <div class="carousel-item {{ class }}">
-                <img src="{{ image.src }}" alt="{{ image.title }}">
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h1>Example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+        <ol class="carousel-indicators">
+            {% for slide in slides %}
+                <li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}"
+                    class="{% if loop.first %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% set class = '' %}
+            {% for slide in slides %}
+                {% if loop.first %}
+                    {% set class = 'active' %}
+                {% endif %}
+                <div class="carousel-item {{ class }}">
+                    <img src="{{ slide.image_src }}" alt="{{ slide.image_title }}">
+                    <div class="container">
+                        <div class="carousel-caption text-left">
+                            <h1>{{ slide.heading }}</h1>
+                            <p>{{ slide.subheading }}</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Бронирование билетов </a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -38,4 +39,20 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+    <div class="card-deck">
+    {% for product in slides %}
+        <div class="card">
+
+            <img class="card-img-top" src="{{ product.image_src }}" alt="{{ product.image_title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.heading }}</h5>
+                <p class="card-text">{{ product.subheading }}</p>
+            </div>
+                <small class="text-muted">Забронировать</small>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}
