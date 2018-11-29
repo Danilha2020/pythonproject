@@ -29,3 +29,13 @@ CREATE TABLE `image` (
   `url` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`));
 
+ALTER TABLE `image`
+ADD COLUMN  `product_id` INT NULL AFTER `ur1`,
+ADD INDEX `fk_product_idx` (`product_id` ASC )
+;
+ALTER TABLE `image`
+ADD CONSTRAINT `fk_product`
+  FOREIGN KEY (`product_id`)
+  REFERENCES `product` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
