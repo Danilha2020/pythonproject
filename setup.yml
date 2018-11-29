@@ -2,12 +2,18 @@
 - hosts: all
   become: yes
   tasks:
-  - name: Install MySQL Percona Server 5.6
+    - name: Killing ubuntu auto-update script
+      command: pkill --full /usr/bin/unattended-upgrade
+      become: true
+      register: kill_result
+      failed_when: kill_result.rc > 1
+      changed_when: kill_result.rc == 0
+
+    - name: Install MySQL Percona Server 5.6
       apt:
         name: percona-server-server-5.6
         state: present
         update_cache: yes
-
       apt_key:
         keyserver: keyserver.ubuntu.com
         id: 4AB0F789CBA31744CC7DA76A8CF63AD3F06FC659
