@@ -1,14 +1,18 @@
 from flask import Flask, url_for, render_template
-app = Flask(__name__) # __main__
+from repository import shop
 
+app = Flask(__name__)
 
 
 def generate_links():
     with app.test_request_context():
-        danil_is_host_link = url_for('hello_user',username='В ближайшем обновлении')
         misha_the_great_link = url_for(
             'hello_user',
-            username='Скоро добавим'
+            username='New Shop'
+        )
+        danil_the_great_link = url_for(
+            'hello_user',
+            username='Danil The Great'
         )
         index_link = url_for('index')
         index_with_params_link = url_for(
@@ -18,43 +22,31 @@ def generate_links():
         )
 
         links = {
-            "Каталог": danil_is_host_link,
-            "Новости": misha_the_great_link,
-            'Корзина': index_link,
-            'Тех.поддержка': index_with_params_link,
+            "Misha's page": misha_the_great_link,
+            "Danil's page": danil_the_great_link,
+            'Index': index_link,
+            'Index with params': index_with_params_link,
         }
-        return links
+
+    return links
 
 
 @app.route('/')
-def index() :
+def index():
     links = generate_links()
-    slides = [
-        {
-          'image_src':'http://www.vokrugsveta.ru/img/cmn/2013/05/06/005.jpg',
-          'image_title': 'Image title',
-          'heading':'Посмотрите природу Турции',
-          'subheading': 'Тайланд',
-        },
-        {
-            'image_src':'https://ejourney.ru/files/img/2013/01/kogda_luchshe_ehat_v_egipet_0.jpg',
-            'image_title': 'Image 2 title',
-            'heading': 'Посмотрите природу Египта',
-            'subheading': 'Заказ билетов у нас!',
-        },
-        {
-            'image_src': 'https://well.ru/upload/uf/ba4/15.jpg',
-            'image_title': 'Image 3 title',
-            'heading': 'Посмотрите природу Тайланда',
-            'subheading': 'заказ билетов у нас!',
-        },
-        {
-            'image_src': 'https://wallpaperstudio10.com/static/wpdb/wallpapers/3840x2160/171847.jpg',
-            'image_title': 'Image 4 title',
-            'heading': 'Посмотрите природу Мальдив',
-            'subheading': 'заказ билетов у нас!',
+
+    categories = shop.find_all_categories()
+    slides = list()
+    for x in categories:
+        slide = {
+        'category_id': x.get('id'),
+        'heading': x.get('title'),
+        'image_title': x.get('title'),
+        'subheading': x.get('description'),
+        'image_src': x.get('image_url')
         }
-    ]
+        slides.append(slide)
+
     return render_template('index.html', links=links, slides=slides)
 
 
@@ -64,13 +56,28 @@ def index() :
 def hello_user(username=None):
     links = generate_links()
     return render_template(
-            'user.html',
-            username=username,
-            links=links
+        'user.html',
+        username=username,
+        links=links,
     )
+
+
+@app.route('/category/<int:category_id>')
+def category_page(category_id):
+    links = generate_links()
+
+
+
+    category = shop.find_category(category_id)
+    product  = shop.find_products_by_category(category_id)
+
+    return render_template(
+        'category.html',
+        products=products,
+        category=category,
+        links=links
+    )
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', debug=True)
-
-
-
