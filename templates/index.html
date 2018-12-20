@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Australia-market{% endblock %}
+{% block title %}New shop{% endblock %}
+
 {% block stylesheets %}
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/carousel/carousel.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/docs/4.1/examples/carousel/carousel.css">
 {% endblock %}
+
 {% block content %}
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             {% for slide in slides %}
-                <li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}"
+                <li data-target="#myCarousel"
+                    data-slide-to="{{ loop.index0 }}"
                     class="{% if loop.first %}active{% endif %}"></li>
             {% endfor %}
         </ol>
@@ -19,12 +22,19 @@
                     {% set class = 'active' %}
                 {% endif %}
                 <div class="carousel-item {{ class }}">
-                    <img src="{{ slide.image_src }}" alt="{{ slide.image_title }}">
+                    <img src="{{ slide.image_src }}"
+                         alt="{{ slide.image_title }}">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>{{ slide.heading }}</h1>
                             <p>{{ slide.subheading }}</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Бронирование билетов </a></p>
+                            <p>
+                                <a class="btn btn-lg btn-primary"
+                                   href="{{ url_for('category_page', category_id=slide.category_id) }}"
+                                   role="button">
+                                    Перейти в категорию
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -40,21 +50,25 @@
         </a>
     </div>
 
-    <div class="card-group">
+    <div class="card-deck">
         {% for product in slides %}
             <div class="card">
-
-                <img class="card-img-top" src="{{ product.image_src }}" alt="{{ product.image_title }}">
+                <img class="card-img-top"
+                     src="{{ product.image_src }}"
+                     alt="{{ product.image_title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ product.heading }}</h5>
                     <p class="card-text">{{ product.subheading }}</p>
+                    <p class="card-text">
+                        <small class="text-bold">
+                            <a href="{{ url_for('category_page',
+                                        category_id=product.category_id) }}">
+                                Перейти в категорию
+                            </a>
+                        </small>
+                    </p>
                 </div>
-                <p>
-                    <small class="text-muted">Забронировать</small>
-                </p>
-
             </div>
         {% endfor %}
     </div>
-
 {% endblock %}
