@@ -8,24 +8,20 @@ def generate_links():
     with app.test_request_context():
         misha_the_great_link = url_for(
             'hello_user',
-            username='New Shop'
+            username='New List'
         )
         danil_the_great_link = url_for(
             'hello_user',
-            username='Danil The Great'
+            username='New List'
         )
         index_link = url_for('index')
-        index_with_params_link = url_for(
-            'index',
-            param1='param1',
-            param2='param2'
-        )
+
 
         links = {
             "Misha's page": misha_the_great_link,
             "Danil's page": danil_the_great_link,
-            'Index': index_link,
-            'Index with params': index_with_params_link,
+            'Корзина': index_link,
+
         }
 
     return links
