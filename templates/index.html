@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Qiwi-com{% endblock %}
+{% block title %}Bike shop{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="http://getbootstrap.com/docs/4.1/examples/carousel/carousel.css">
@@ -32,7 +32,7 @@
                                 <a class="btn btn-lg btn-primary"
                                    href="{{ url_for('category_page', category_id=slide.category_id) }}"
                                    role="button">
-                                    Перейти в категорию
+                                    Купить
                                 </a>
                             </p>
                         </div>
@@ -63,7 +63,7 @@
                         <small class="text-bold">
                             <a href="{{ url_for('category_page',
                                         category_id=product.category_id) }}">
-                                Перейти в категорию
+                                ПРИОБРЕСТИ
                             </a>
                         </small>
                     </p>

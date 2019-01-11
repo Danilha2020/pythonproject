@@ -17,10 +17,11 @@ def generate_links():
         index_link = url_for('index')
 
 
+
         links = {
-            "Misha's page": misha_the_great_link,
-            "Danil's page": danil_the_great_link,
-            'Корзина': index_link,
+            "Доставка": misha_the_great_link,
+            "Каталоги": danil_the_great_link,
+
 
         }
 
@@ -45,6 +46,13 @@ def index():
 
     return render_template('index.html', links=links, slides=slides)
 
+@app.route('/cart')
+def cart():
+    links = generate_links()
+    return render_template(
+        'basket.html',
+        links=links,
+    )
 
 
 @app.route('/user/')
@@ -56,7 +64,6 @@ def hello_user(username=None):
         username=username,
         links=links,
     )
-
 
 @app.route('/category/<int:category_id>')
 def category_page(category_id):

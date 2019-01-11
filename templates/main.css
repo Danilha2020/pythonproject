@@ -1,17 +1,8 @@
-ul.navigation {
-    display: block;
+.center-croped {
+    object-fit: cover;
+    object-position: top;
 }
-
-.navigation li{
-    display: block;
-    float: left;
-    padding: 5px;
-    background-color: red;
-    margin-right: 5px
+.text-shadow {
+    text-shadow: 0 0 1px black;
 }
-
-.collapse{
-  text-align: right;
- }
-
 
