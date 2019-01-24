@@ -1,57 +1,69 @@
 {% extends "base.html" %}
 
 {% block content %}
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"></th>
-      <td>Name</td>
-      <td>Count</td>
-      <td>Price</td>
-      <td>Summary</td>
-    </tr>
-    <tr>
-      <th scope="row"><image src="https://i.ytimg.com/vi/-TrheWf7TXM/maxresdefault.jpg" style="width:150px"></image></th>
-      <td>BMX WTP Trust</td>
-      <td><input type="text" name="input" size="1" class="display">
-          <button type="button" class="btn btn-primary">+</button>
-          <button type="button" class="btn btn-primary">-</button></td>
-      <td>30000</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"><image src="https://i.ytimg.com/vi/T52BgBU5EdE/maxresdefault.jpg" style="width:150px"></image></th>
-      <td>BMX WTP Crysis</td>
-      <td><input type="text" name="input" size="1" class="display">
-          <button type="button" class="btn btn-primary">+</button>
-          <button type="button" class="btn btn-primary">-</button></td>
-      <td>25000</td>
-      <td></td>
-    </tr>
-  <tr>
-      <th scope="row"><image src="https://i.ytimg.com/vi/4pYu9oGqtbU/maxresdefault.jpg" style="width:150px"></image></th>
-      <td>BMX WTP Volta</td>
-      <td><input type="text" name="input" size="1" class="display">
-          <button type="button" class="btn btn-primary">+</button>
-          <button type="button" class="btn btn-primary">-</button></td>
-      <td>35000</td>
-      <td></td>
-    </tr>
-  <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td>Итого:</td>
-      <td><input type="text" name="input" size="10" class="display"></td>
-    </tr>
-  </tbody>
-</table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row"></th>
+            <td>Name</td>
+            <td>Count</td>
+            <td>Price</td>
+            <td>Summary</td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <image src="https://i.ytimg.com/vi/-TrheWf7TXM/maxresdefault.jpg" style="width:150px"></image>
+            </th>
+            <td>BMX WTP Trust</td>
+            <td>
+                <button type="button" class="btn btn-danger" id="1">-</button>
+                <input type="number" name="input" size="1" class="display" id="3">
+                <button type="button" class="btn btn-danger" id="2">+</button>
+            </td>
+            <td>30000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <image src="https://i.ytimg.com/vi/T52BgBU5EdE/maxresdefault.jpg" style="width:150px"></image>
+            </th>
+            <td>BMX WTP Crysis</td>
+            <td>
+                <button type="button" class="btn btn-danger">-</button>
+                <input type="number" name="input" size="1" class="display">
+                <button type="button" class="btn btn-danger">+</button>
+            </td>
+            <td>25000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <image src="https://i.ytimg.com/vi/4pYu9oGqtbU/maxresdefault.jpg" style="width:150px"></image>
+            </th>
+            <td>BMX WTP Volta</td>
+            <td>
+                <button type="button" class="btn btn-danger">-</button>
+                <input type="number" name="input" size="1" class="display">
+                <button type="button" class="btn btn-danger">+</button>
+            </td>
+            <td>35000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td>Итого:</td>
+            <td><input type="text" name="input" size="10" class="display"></td>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}

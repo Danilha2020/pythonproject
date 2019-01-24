@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
     {% block stylesheets %}{% endblock %}
+<script src="cart.js" defer></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse d-flex" id="navbarsExampleDefault">
+        <div class="collapse navbar-expand-lg d-flex" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 {% for title, link in links.items() %}
                     <li class="nav-item">
@@ -30,8 +31,16 @@
                     </li>
                 {% endfor %}
             </ul>
+                <div class="nav-item ml-auto">
+            <a class="nav-link text-left" href="/user" style="color:#FFFFFF">Каталог</a>
+        </div>
+
+         <div class="nav-item ml-auto">
+            <a class="nav-link text-left" href="/category" style="color:#FFFFFF">Категории</a>
+        </div>
         <div class="nav-item ml-auto">
             <a class="nav-link text-right" href="/cart" style="color:#FFFFFF">Корзина</a>
+        </div>
         </div>
     </nav>
 </section>

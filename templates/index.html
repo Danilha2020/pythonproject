@@ -23,14 +23,15 @@
                 {% endif %}
                 <div class="carousel-item {{ class }}">
                     <img src="{{ slide.image_src }}"
-                         alt="{{ slide.image_title }}">
+                         alt="{{ slide.image_title }}"
+                         class="center-cropped">
                     <div class="container">
-                        <div class="carousel-caption text-left">
+                        <div class="carousel-caption text-left text-shadow">
                             <h1>{{ slide.heading }}</h1>
                             <p>{{ slide.subheading }}</p>
                             <p>
-                                <a class="btn btn-lg btn-primary"
-                                   href="{{ url_for('category_page', category_id=slide.category_id) }}"
+                                <a class="btn btn-danger"
+                                   href="{{ url_for('cart', category_id=slide.category_id) }}"
                                    role="button">
                                     Купить
                                 </a>
@@ -61,7 +62,7 @@
                     <p class="card-text">{{ product.subheading }}</p>
                     <p class="card-text">
                         <small class="text-bold">
-                            <a href="{{ url_for('category_page',
+                            <a href="{{ url_for('cart',
                                         category_id=product.category_id) }}">
                                 ПРИОБРЕСТИ
                             </a>

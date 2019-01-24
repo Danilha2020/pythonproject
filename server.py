@@ -8,19 +8,17 @@ def generate_links():
     with app.test_request_context():
         misha_the_great_link = url_for(
             'hello_user',
-            username='New List'
+
         )
         danil_the_great_link = url_for(
             'hello_user',
-            username='New List'
+
         )
         index_link = url_for('index')
 
 
 
         links = {
-            "Доставка": misha_the_great_link,
-            "Каталоги": danil_the_great_link,
 
 
         }
@@ -55,8 +53,8 @@ def cart():
     )
 
 
-@app.route('/user/')
-@app.route('/user/<username>')
+
+@app.route('/user')
 def hello_user(username=None):
     links = generate_links()
     return render_template(
@@ -65,19 +63,12 @@ def hello_user(username=None):
         links=links,
     )
 
-@app.route('/category/<int:category_id>')
-def category_page(category_id):
+@app.route('/category')
+def category_page(username=None):
     links = generate_links()
-
-
-
-    category = shop.find_category(category_id)
-    product  = shop.find_products_by_category(category_id)
-
     return render_template(
         'category.html',
-        products=products,
-        category=category,
+        username=username,
         links=links
     )
 
