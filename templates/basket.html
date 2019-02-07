@@ -24,9 +24,9 @@
             </th>
             <td>BMX WTP Trust</td>
             <td>
-                <button type="button" class="btn btn-danger" id="1">-</button>
-                <input type="number" name="input" size="1" class="display" id="3">
-                <button type="button" class="btn btn-danger" id="2">+</button>
+                <button type="button" class="plus-button">+</button>
+                <input type="text" id="amount"  size="1" class="display" id="3" value="0">
+                <button type="button" class="minus-button">-</button>
             </td>
             <td>30000</td>
             <td></td>
@@ -37,9 +37,9 @@
             </th>
             <td>BMX WTP Crysis</td>
             <td>
-                <button type="button" class="btn btn-danger">-</button>
-                <input type="number" name="input" size="1" class="display">
-                <button type="button" class="btn btn-danger">+</button>
+                <button type="button" class="plus-button">+</button>
+                <input type="text" id="amount"  size="1" class="display" value="0">
+                <button type="button" class="minus-button">-</button>
             </td>
             <td>25000</td>
             <td></td>
@@ -50,9 +50,9 @@
             </th>
             <td>BMX WTP Volta</td>
             <td>
-                <button type="button" class="btn btn-danger">-</button>
-                <input type="number" name="input" size="1" class="display">
-                <button type="button" class="btn btn-danger">+</button>
+                <button type="button" class="plus-button">+</button>
+                <input type="text" id="amount" size="1"  class="display" value="0">
+                <button type="button" class="minus-button">-</button>
             </td>
             <td>35000</td>
             <td></td>
@@ -62,8 +62,9 @@
             <td></td>
             <td></td>
             <td>Итого:</td>
-            <td><input type="text" name="input" size="10" class="display"></td>
+            <td><input type="text" name="input" size="10" class="display" value="0"></td>
         </tr>
         </tbody>
     </table>
+    <script type="text/javascript" src="/static/cart.js"></script>
 {% endblock %}
