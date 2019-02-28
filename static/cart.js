@@ -1,27 +1,30 @@
-const decrement = a =>  parseInt(a) ? a -1 : 0;
+const decrement = a => parseInt(a) ? a - 1 : 0;
+const increment = a => parseInt(a) + 1;
 
-const increment = () => parseInt(a) + 1;
+const cartPositions = Array.from(document.querySelectorAll('.cart-position'));
+const total = document.querySelector('#total');
 
-const cartPositions = document.querySelectorAll(selectors '.cart-positions')
+cartPositions.forEach((cartPosition) => {
+    const price = parseInt(cartPosition.querySelector('.price').innerHTML);
+    const amount = cartPosition.querySelector('.amount');
 
-cartpositions.forEach(callbackfn (cartpositions) => {
-    const price = parseInt(cartPositionosition.querySelector('.price').innerHTML)
-    const amount = cartPosition.querySelector('.amount')
+    const plusButton = cartPosition.querySelector('.plus-button');
+    const minusButton = cartPosition.querySelector('.minus-button');
 
-    const plusButton = cartPositionp.querySelector('.plus-button')
-    const minusButton = cartPositionp.querySelector('.minus-button')
-    const sum = cartPosition.querySelector('.sum')
+    const sum = cartPosition.querySelector('.sum');
+    sum.innerHTML = parseInt(amount.value) * price;
 
-        .plusbutton.addEventListener( 'click', () => () => {
-            const value = increment(amount.value)
-            sum.innerHTML = amount.value * price
-            amount.value = amountValue
+    plusButton.addEventListener('click', () => {
+        const amountValue = increment(amount.value);
+        sum.innerHTML = amountValue * price;
+        amount.value = amountValue
+        total.innerHTML = parseInt(total.innerHTML) + price
+    })
 
-    }
-       .minusButton.addEventListener('click', ()  => {
-           amount .value = decrement(amount.value)
-
-    }
-
-    cartPosition.querySelector('.sum').innerHTML = price * amount
+    minusButton.addEventListener('click', () => {
+        const amountValue = decrement(amount.value);
+        sum.innerHTML = amountValue * price;
+        amount.value = amountValue
+        total.innerHTML = parseInt(total.innerHTML) - price
+    })
 })
