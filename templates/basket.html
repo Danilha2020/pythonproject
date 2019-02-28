@@ -1,70 +1,20 @@
-{% extends "base.html" %}
+<table>
+    {% for i in [0, 1, 2, 3] %}
+    <tr class="cart-position">
+        <td>Name</td>
+        <td class="price">100</td>
+        <td>
+            <button class="minus-button">-</button>
+            <input type="text" value="1" class="amount">
+            <button class="plus-button">+</button>
+        </td>
+        <td class="sum">0</td>
+    </tr>
+    {% endfor %}
+<tr>
+    <td colspan="3"></td>
+    <td class="total">0</td>
+</tr>
+</table>
 
-{% block content %}
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row"></th>
-            <td>Name</td>
-            <td>Count</td>
-            <td>Price</td>
-            <td>Summary</td>
-        </tr>
-        <tr>
-            <th scope="row">
-                <image src="https://i.ytimg.com/vi/-TrheWf7TXM/maxresdefault.jpg" style="width:150px"></image>
-            </th>
-            <td>BMX WTP Trust</td>
-            <td>
-                <button type="button" class="plus-button">+</button>
-                <input type="text" id="amount"  size="1" class="display" id="3" value="0">
-                <button type="button" class="minus-button">-</button>
-            </td>
-            <td>30000</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">
-                <image src="https://i.ytimg.com/vi/T52BgBU5EdE/maxresdefault.jpg" style="width:150px"></image>
-            </th>
-            <td>BMX WTP Crysis</td>
-            <td>
-                <button type="button" class="plus-button">+</button>
-                <input type="text" id="amount"  size="1" class="display" value="0">
-                <button type="button" class="minus-button">-</button>
-            </td>
-            <td>25000</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">
-                <image src="https://i.ytimg.com/vi/4pYu9oGqtbU/maxresdefault.jpg" style="width:150px"></image>
-            </th>
-            <td>BMX WTP Volta</td>
-            <td>
-                <button type="button" class="plus-button">+</button>
-                <input type="text" id="amount" size="1"  class="display" value="0">
-                <button type="button" class="minus-button">-</button>
-            </td>
-            <td>35000</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td>Итого:</td>
-            <td><input type="text" name="input" size="10" class="display" value="0"></td>
-        </tr>
-        </tbody>
-    </table>
-    <script type="text/javascript" src="/static/cart.js"></script>
-{% endblock %}
+<script src="/static/cart.js" type="text/javascript"></script>
