@@ -28,4 +28,4 @@ cartPositions.forEach((cartPosition) => {
         amount.value = amountValue
     })
 })
-cart=localstorage.getItem('cart')
+cart=ls.getItem('cart');

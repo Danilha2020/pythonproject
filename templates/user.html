@@ -21,11 +21,12 @@
                         </div>
                         <div class="form-group col-md-7">
                             <label for="inputPassword4">Паспортные данные</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="12345678910">
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="1234 567890">
                         </div>
                         <div class="form-group col-md-7">
-                            <label for="inputPassword4">Контактные данные</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="+7-999-999-99-99">
+                            <label for="inputPassword4">Телефонный номер</label>
+                            <input type="password" class="form-control" id="inputPassword4"
+                                   placeholder="+7-999-999-99-99">
                         </div>
 
                     </div>
@@ -38,16 +39,20 @@
                             <label for="inputCity">Город</label>
                             <input type="text" class="form-control" id="inputCity">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Примечание</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
                             <label class="form-check-label" for="gridCheck">
-                                Я согласен на
+                                Я принимаю <a href="category"> пользовательское соглашение</a>
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Заказать</button>
+                    <button type="button" class="btn btn-primary" onClick='location.href="/"'>Заказать</button>
                 </form>
             </div>
         </div>
