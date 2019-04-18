@@ -1,86 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Bike shop{% endblock %}
+{% block title %}Корзина{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <table class="table">
+    <div id="cart"></div>
+{% endblock %}
 
-
-            <tr class="cart-position">
-                <td>
-                    <image src="https://i.ytimg.com/vi/-TrheWf7TXM/maxresdefault.jpg" style="width:150px"></image>
-                </td>
-                <td class="price">30000</td>
-                <td>
-                    <button class="minus-button">-</button>
-                    <input type="text" value="0" class="amount">
-                    <button class="plus-button">+</button>
-                </td>
-                <td class="sum">0</td>
-            </tr>
-            <tr class="cart-position">
-                <td>
-                    <image src="https://i.ytimg.com/vi/T52BgBU5EdE/maxresdefault.jpg" style="width:150px"></image>
-                </td>
-                <td class="price">25000</td>
-                <td>
-                    <button class="minus-button">-</button>
-                    <input type="text" value="0" class="amount">
-                    <button class="plus-button">+</button>
-                </td>
-                <td class="sum">0</td>
-            </tr>
-            <tr class="cart-position">
-                <td>
-                    <image src="https://i.ytimg.com/vi/4pYu9oGqtbU/maxresdefault.jpg" style="width:150px"></image>
-                </td>
-                <td class="price">35000</td>
-                <td>
-                    <button class="minus-button">-</button>
-                    <input type="text" value="0" class="amount">
-                    <button class="plus-button">+</button>
-                </td>
-                <td class="sum">0</td>
-            </tr>
-
-            <tr>
-                <td colspan="3"></td>
-                <td id="total">0</td>
-            </tr>
-        </table>
-
-        <div class="row">
-            <div class="md-2">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Введите ваш Email адрес</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Выберите удобный для вас способ получения товара</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>Почта России</option>
-                            <option>Другая служба доставки</option>
-                            <option>Самовывоз из офиса</option>
-                            <option>Самовывоз со склада</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"></label>
-                        <div class="button-2">
-                            <button type="button" class="btn btn-danger" onClick='location.href="/user"'>Оформить заказ
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
+{% block scripts %}
     <script src="/static/cart.js" type="text/javascript"></script>
 {% endblock %}
