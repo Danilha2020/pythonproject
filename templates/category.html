@@ -3,12 +3,9 @@
 {% block title %}{{ category.title }}{% endblock %}
 
 {% block content %}
-    <script type="text/javascript">
-        const products = []
-    </script>
     <div class="card-deck">
         {% for product in products %}
-            <div class="card">
+            <div class="card" data-product="{{ product|tojson|forceescape }}">
             {% if product.image_url %}
                 <img class="card-img-top"
                      src="{{ product.image_url }}"
@@ -27,21 +24,14 @@
                             <small class="text-muted">Нет в наличии</small>
                         {% endif %}
                     </p>
-                <button class="add-button" data-id="{{ product.id }}">Добавить в корзину</button>
+                <button class="add-button" data-product="{{ product|tojson|forceescape }}">Добавить в корзину</button>
                 </div>
             </div>
-            <script type="text/javascript">
-                        product[{{ product.id}}] = {
-                            id: {{ product.id }},
-                            title: '{{ product.title }}',
-                            sum: 0,
-                            amount: 1,
-                            price: {{ product.price}},
-                        }
-            </script>
         {% endfor %}
     </div>
 {% endblock %}
 
 {% block scripts %}
+    <script type="text/javascript"
+            src="/static/product.js"></script>
 {% endblock %}

@@ -83,6 +83,14 @@ def cart():
         links=links
     )
 
+@app.route('/ps')
+def ps():
+    links = generate_links()
+
+    return render_template(
+        'ps.html',
+        links=links
+    )
 
 if __name__ == '__main__':
     app.run('0.0.0.0', debug=True)

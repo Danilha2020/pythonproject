@@ -1,28 +1,39 @@
-const addToBasket = (productId) => {
-    console.log(cart)
+const addToBasket = (category) => {
+    product = JSON.parse('product')
+    console.log(product)
     let cart =
-     JSON.parse(localStorage.getItem('cart'))
-    if (cart === null){
-        cart ={
+        JSON.parse(localStorage.getItem('cart'))
+    if (cart === null) {
+        cart = {
             positions: {},
         }
     }
-    console.log(cart)
+
     cart.positions = {
         ...cart.positions,
-        [productId]: getProductFromServer(productId),
+        [product.id]:
+            getProductFromServer(category),
     }
-    localStorage.setItem('cart', JSON.stringify(cart))
+
+    console.log(cart)
+    localStorage.setItem('cart',
+        JSON.stringify(cart))
 }
 
-const getProductFromServer = (productId) => {
-    return products[productId]
+const getProductFromServer = (category) => {
+    return {
+        id: category.id,
+        title: category.title,
+        sum: 0,
+        amount: 1,
+        price: category.price,
+    }
 }
 
 const buttons = document.getElementsByClassName('add-button')
 
 Array.from(buttons).forEach(button => {
     button.addEventListener('click', (e) => {
-        addToBasket(e.target.dataset.id)
+        addToBasket(e.target.dataset.product)
     })
 })
