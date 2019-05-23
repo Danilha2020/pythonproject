@@ -28,7 +28,6 @@
                     <div class="container">
                         <div class="carousel-caption text-left text-shadow">
                             <h1>{{ slide.heading }}</h1>
-                            <p>{{ slide.subheading }}</p>
 
                         </div>
                     </div>
@@ -54,9 +53,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ product.heading }}</h5>
                     <p class="card-text">{{ product.subheading }}</p>
-                    <p class="card-text">
-                    </p>
-                    <button class="btn btn-danger" onClick='location.href="/cart"'">Купить</button>
+                    {% set productString ='{"id": ' + product.category_id + ',"title": '+ product.heading +',"price": ' + product.subheading +'}' %}
+                    <button class="add-button btn btn-danger" data-product="{{ product7|forceescape }}">Купить</button>
                 </div>
             </div>
         {% endfor %}

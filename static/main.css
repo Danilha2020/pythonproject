@@ -6,3 +6,6 @@
 .text-shadow {
     text-shadow: 0 0 1px black;
 }
+body.pt {
+    padding-top: 0;
+}

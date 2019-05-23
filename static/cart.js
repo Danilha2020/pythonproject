@@ -49,15 +49,15 @@ const decrement = (cart, idPosition) => {
 const cart =
     {
         positions: {
-            1: {id: 1, "BMX WTP Trust", price: 25000, amount 2, sum 0},
-            2: {id: 2, "BMX WTP Volta", price: 30000, amount 2, sum 0},
-            3: {id: 3, "BMX WTP Crysis", price: 35000, amount 2, sum 0}
+            1: {id: 1, title:"BMX WTP Trust",  price: 25000, amount: 2, sum: 0},
+            2: {id: 2, title:"BMX WTP Volta",  price: 30000, amount: 3, sum: 0},
+            3: {id: 3, title:"BMX WTP Crysis", price: 35000, amount: 5, sum: 0}
         }
     };
 const cartInString = JSON.stringify(cart);
 
 localStorage.setItem('cart', cartInString);
-cart = JSON.parse(CartInString);
+cart = JSON.parse('CartInString');
 JSON.parse(localStorage.getItem('cart'));
 console.log(cart);
 
