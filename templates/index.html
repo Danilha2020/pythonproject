@@ -53,8 +53,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ product.heading }}</h5>
                     <p class="card-text">{{ product.subheading }}</p>
-                    {% set productString = '{"id": ' ~ product.category_id ~ ',"title": '~ product.heading ~',"price": ' ~ product.subheading ~'}' %}
-                    <button class="add-button btn btn-danger" data-product="{{ product7|forceescape }}">Купить</button>
+                    {% set productString = '{"id": ' ~ product.category_id ~ ',"title": "'~ product.heading ~'","price": ' ~ product.subheading ~'}' %}
+                    <button id="button-{{ product.category_id }}" class="add-button btn btn-danger" data-product="{{ productString|forceescape }}">Добавить в корзину</button>
                 </div>
             </div>
         {% endfor %}
